@@ -6,13 +6,13 @@
 //
 
 import Cocoa
+import AutocompleteTokenField
 
 class ViewController: NSViewController {
-
+    @IBOutlet weak var searchControl: AutocompleteTokenField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override var representedObject: Any? {
@@ -20,7 +20,10 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        searchControl.textField.becomeFirstResponder()
+    }
 }
 

@@ -11,7 +11,39 @@
 		A9A2C32826597E2D00CFA2E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C32726597E2D00CFA2E7 /* ViewController.swift */; };
 		A9A2C32A26597E2E00CFA2E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9A2C32926597E2E00CFA2E7 /* Assets.xcassets */; };
 		A9A2C32D26597E2E00CFA2E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A2C32B26597E2E00CFA2E7 /* Main.storyboard */; };
+		A9A2C344265B4DA300CFA2E7 /* AutocompleteTokenField.h in Headers */ = {isa = PBXBuildFile; fileRef = A9A2C342265B4DA300CFA2E7 /* AutocompleteTokenField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9A2C347265B4DA300CFA2E7 /* AutocompleteTokenField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A2C340265B4DA300CFA2E7 /* AutocompleteTokenField.framework */; };
+		A9A2C348265B4DA300CFA2E7 /* AutocompleteTokenField.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9A2C340265B4DA300CFA2E7 /* AutocompleteTokenField.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A9A2C34D265B4DA900CFA2E7 /* AutocompleteTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C335265981DE00CFA2E7 /* AutocompleteTokenField.swift */; };
+		A9A2C34E265B4DA900CFA2E7 /* AutocompleteTokenFieldTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C33726598F9D00CFA2E7 /* AutocompleteTokenFieldTokenView.swift */; };
+		A9A2C350265B5D8500CFA2E7 /* AutocompleteTokenFieldDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C34F265B5D8500CFA2E7 /* AutocompleteTokenFieldDataSource.swift */; };
+		A9A2C354265B651E00CFA2E7 /* AutocompleteTokenFieldCandidateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C353265B651E00CFA2E7 /* AutocompleteTokenFieldCandidateView.swift */; };
+		A9A2C35A265B6B0F00CFA2E7 /* AutocompleteTokenFieldCandidatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C359265B6B0F00CFA2E7 /* AutocompleteTokenFieldCandidatesViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9A2C345265B4DA300CFA2E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9A2C31A26597E2D00CFA2E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9A2C33F265B4DA300CFA2E7;
+			remoteInfo = AutocompleteTokenField;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A9A2C34C265B4DA300CFA2E7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A9A2C348265B4DA300CFA2E7 /* AutocompleteTokenField.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A9A2C32226597E2D00CFA2E7 /* SearchControlDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchControlDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,10 +53,26 @@
 		A9A2C32C26597E2E00CFA2E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9A2C32E26597E2E00CFA2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9A2C32F26597E2E00CFA2E7 /* SearchControlDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SearchControlDemo.entitlements; sourceTree = "<group>"; };
+		A9A2C335265981DE00CFA2E7 /* AutocompleteTokenField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteTokenField.swift; sourceTree = "<group>"; };
+		A9A2C33726598F9D00CFA2E7 /* AutocompleteTokenFieldTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteTokenFieldTokenView.swift; sourceTree = "<group>"; };
+		A9A2C340265B4DA300CFA2E7 /* AutocompleteTokenField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AutocompleteTokenField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9A2C342265B4DA300CFA2E7 /* AutocompleteTokenField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutocompleteTokenField.h; sourceTree = "<group>"; };
+		A9A2C343265B4DA300CFA2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9A2C34F265B5D8500CFA2E7 /* AutocompleteTokenFieldDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteTokenFieldDataSource.swift; sourceTree = "<group>"; };
+		A9A2C353265B651E00CFA2E7 /* AutocompleteTokenFieldCandidateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteTokenFieldCandidateView.swift; sourceTree = "<group>"; };
+		A9A2C359265B6B0F00CFA2E7 /* AutocompleteTokenFieldCandidatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteTokenFieldCandidatesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A9A2C31F26597E2D00CFA2E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9A2C347265B4DA300CFA2E7 /* AutocompleteTokenField.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9A2C33D265B4DA300CFA2E7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				A9A2C32426597E2D00CFA2E7 /* SearchControlDemo */,
+				A9A2C341265B4DA300CFA2E7 /* AutocompleteTokenField */,
 				A9A2C32326597E2D00CFA2E7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				A9A2C32226597E2D00CFA2E7 /* SearchControlDemo.app */,
+				A9A2C340265B4DA300CFA2E7 /* AutocompleteTokenField.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,7 +113,32 @@
 			path = SearchControlDemo;
 			sourceTree = "<group>";
 		};
+		A9A2C341265B4DA300CFA2E7 /* AutocompleteTokenField */ = {
+			isa = PBXGroup;
+			children = (
+				A9A2C34F265B5D8500CFA2E7 /* AutocompleteTokenFieldDataSource.swift */,
+				A9A2C335265981DE00CFA2E7 /* AutocompleteTokenField.swift */,
+				A9A2C33726598F9D00CFA2E7 /* AutocompleteTokenFieldTokenView.swift */,
+				A9A2C353265B651E00CFA2E7 /* AutocompleteTokenFieldCandidateView.swift */,
+				A9A2C359265B6B0F00CFA2E7 /* AutocompleteTokenFieldCandidatesViewController.swift */,
+				A9A2C342265B4DA300CFA2E7 /* AutocompleteTokenField.h */,
+				A9A2C343265B4DA300CFA2E7 /* Info.plist */,
+			);
+			path = AutocompleteTokenField;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A9A2C33B265B4DA300CFA2E7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9A2C344265B4DA300CFA2E7 /* AutocompleteTokenField.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		A9A2C32126597E2D00CFA2E7 /* SearchControlDemo */ = {
@@ -73,15 +148,35 @@
 				A9A2C31E26597E2D00CFA2E7 /* Sources */,
 				A9A2C31F26597E2D00CFA2E7 /* Frameworks */,
 				A9A2C32026597E2D00CFA2E7 /* Resources */,
+				A9A2C34C265B4DA300CFA2E7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A9A2C346265B4DA300CFA2E7 /* PBXTargetDependency */,
 			);
 			name = SearchControlDemo;
 			productName = SearchControlDemo;
 			productReference = A9A2C32226597E2D00CFA2E7 /* SearchControlDemo.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A9A2C33F265B4DA300CFA2E7 /* AutocompleteTokenField */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9A2C349265B4DA300CFA2E7 /* Build configuration list for PBXNativeTarget "AutocompleteTokenField" */;
+			buildPhases = (
+				A9A2C33B265B4DA300CFA2E7 /* Headers */,
+				A9A2C33C265B4DA300CFA2E7 /* Sources */,
+				A9A2C33D265B4DA300CFA2E7 /* Frameworks */,
+				A9A2C33E265B4DA300CFA2E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AutocompleteTokenField;
+			productName = AutocompleteTokenField;
+			productReference = A9A2C340265B4DA300CFA2E7 /* AutocompleteTokenField.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -93,6 +188,9 @@
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					A9A2C32126597E2D00CFA2E7 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					A9A2C33F265B4DA300CFA2E7 = {
 						CreatedOnToolsVersion = 12.5;
 					};
 				};
@@ -111,6 +209,7 @@
 			projectRoot = "";
 			targets = (
 				A9A2C32126597E2D00CFA2E7 /* SearchControlDemo */,
+				A9A2C33F265B4DA300CFA2E7 /* AutocompleteTokenField */,
 			);
 		};
 /* End PBXProject section */
@@ -122,6 +221,13 @@
 			files = (
 				A9A2C32A26597E2E00CFA2E7 /* Assets.xcassets in Resources */,
 				A9A2C32D26597E2E00CFA2E7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9A2C33E265B4DA300CFA2E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +243,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9A2C33C265B4DA300CFA2E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9A2C34E265B4DA900CFA2E7 /* AutocompleteTokenFieldTokenView.swift in Sources */,
+				A9A2C350265B5D8500CFA2E7 /* AutocompleteTokenFieldDataSource.swift in Sources */,
+				A9A2C34D265B4DA900CFA2E7 /* AutocompleteTokenField.swift in Sources */,
+				A9A2C35A265B6B0F00CFA2E7 /* AutocompleteTokenFieldCandidatesViewController.swift in Sources */,
+				A9A2C354265B651E00CFA2E7 /* AutocompleteTokenFieldCandidateView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9A2C346265B4DA300CFA2E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9A2C33F265B4DA300CFA2E7 /* AutocompleteTokenField */;
+			targetProxy = A9A2C345265B4DA300CFA2E7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A9A2C32B26597E2E00CFA2E7 /* Main.storyboard */ = {
@@ -269,6 +395,7 @@
 		A9A2C33326597E2E00CFA2E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SearchControlDemo/SearchControlDemo.entitlements;
@@ -290,6 +417,7 @@
 		A9A2C33426597E2E00CFA2E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SearchControlDemo/SearchControlDemo.entitlements;
@@ -305,6 +433,60 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.umurgdk.SearchControlDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A9A2C34A265B4DA300CFA2E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8STHWE4QY7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AutocompleteTokenField/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.umurgdk.AutocompleteTokenField;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A9A2C34B265B4DA300CFA2E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8STHWE4QY7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AutocompleteTokenField/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.umurgdk.AutocompleteTokenField;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -325,6 +507,15 @@
 			buildConfigurations = (
 				A9A2C33326597E2E00CFA2E7 /* Debug */,
 				A9A2C33426597E2E00CFA2E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9A2C349265B4DA300CFA2E7 /* Build configuration list for PBXNativeTarget "AutocompleteTokenField" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9A2C34A265B4DA300CFA2E7 /* Debug */,
+				A9A2C34B265B4DA300CFA2E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
