@@ -11,14 +11,18 @@
 		A9A2C32826597E2D00CFA2E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C32726597E2D00CFA2E7 /* ViewController.swift */; };
 		A9A2C32A26597E2E00CFA2E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9A2C32926597E2E00CFA2E7 /* Assets.xcassets */; };
 		A9A2C32D26597E2E00CFA2E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A2C32B26597E2E00CFA2E7 /* Main.storyboard */; };
-		A9A2C344265B4DA300CFA2E7 /* AutocompleteTokenField.h in Headers */ = {isa = PBXBuildFile; fileRef = A9A2C342265B4DA300CFA2E7 /* AutocompleteTokenField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A9A2C347265B4DA300CFA2E7 /* AutocompleteTokenField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A2C340265B4DA300CFA2E7 /* AutocompleteTokenField.framework */; };
-		A9A2C348265B4DA300CFA2E7 /* AutocompleteTokenField.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9A2C340265B4DA300CFA2E7 /* AutocompleteTokenField.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A9A2C34D265B4DA900CFA2E7 /* AutocompleteTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C335265981DE00CFA2E7 /* AutocompleteTokenField.swift */; };
-		A9A2C34E265B4DA900CFA2E7 /* AutocompleteTokenFieldTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C33726598F9D00CFA2E7 /* AutocompleteTokenFieldTokenView.swift */; };
-		A9A2C350265B5D8500CFA2E7 /* AutocompleteTokenFieldDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C34F265B5D8500CFA2E7 /* AutocompleteTokenFieldDataSource.swift */; };
-		A9A2C354265B651E00CFA2E7 /* AutocompleteTokenFieldCandidateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C353265B651E00CFA2E7 /* AutocompleteTokenFieldCandidateView.swift */; };
-		A9A2C35A265B6B0F00CFA2E7 /* AutocompleteTokenFieldCandidatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C359265B6B0F00CFA2E7 /* AutocompleteTokenFieldCandidatesViewController.swift */; };
+		A9A2C344265B4DA300CFA2E7 /* TokenField.h in Headers */ = {isa = PBXBuildFile; fileRef = A9A2C342265B4DA300CFA2E7 /* TokenField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9A2C347265B4DA300CFA2E7 /* TokenField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A2C340265B4DA300CFA2E7 /* TokenField.framework */; };
+		A9A2C348265B4DA300CFA2E7 /* TokenField.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9A2C340265B4DA300CFA2E7 /* TokenField.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A9A2C34D265B4DA900CFA2E7 /* TokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C335265981DE00CFA2E7 /* TokenField.swift */; };
+		A9A2C34E265B4DA900CFA2E7 /* TokenFieldTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C33726598F9D00CFA2E7 /* TokenFieldTokenView.swift */; };
+		A9A2C350265B5D8500CFA2E7 /* TokenFieldDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C34F265B5D8500CFA2E7 /* TokenFieldDataSource.swift */; };
+		A9A2C354265B651E00CFA2E7 /* TokenFieldContactCandidateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C353265B651E00CFA2E7 /* TokenFieldContactCandidateView.swift */; };
+		A9A2C35A265B6B0F00CFA2E7 /* TokenFieldCandidatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C359265B6B0F00CFA2E7 /* TokenFieldCandidatesViewController.swift */; };
+		A9A2C35D265FF71F00CFA2E7 /* TokenFieldCandidatesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C35C265FF71F00CFA2E7 /* TokenFieldCandidatesWindowController.swift */; };
+		A9A2C35F2661C65D00CFA2E7 /* TokenTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C35E2661C65D00CFA2E7 /* TokenTextField.swift */; };
+		A9A2C3612661CD1500CFA2E7 /* TokenFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C3602661CD1500CFA2E7 /* TokenFieldDelegate.swift */; };
+		A9A2C3632661D26C00CFA2E7 /* TokenFieldCandidatesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A2C3622661D26C00CFA2E7 /* TokenFieldCandidatesRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A9A2C348265B4DA300CFA2E7 /* AutocompleteTokenField.framework in Embed Frameworks */,
+				A9A2C348265B4DA300CFA2E7 /* TokenField.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,14 +57,18 @@
 		A9A2C32C26597E2E00CFA2E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9A2C32E26597E2E00CFA2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9A2C32F26597E2E00CFA2E7 /* SearchControlDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SearchControlDemo.entitlements; sourceTree = "<group>"; };
-		A9A2C335265981DE00CFA2E7 /* AutocompleteTokenField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteTokenField.swift; sourceTree = "<group>"; };
-		A9A2C33726598F9D00CFA2E7 /* AutocompleteTokenFieldTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteTokenFieldTokenView.swift; sourceTree = "<group>"; };
-		A9A2C340265B4DA300CFA2E7 /* AutocompleteTokenField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AutocompleteTokenField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9A2C342265B4DA300CFA2E7 /* AutocompleteTokenField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutocompleteTokenField.h; sourceTree = "<group>"; };
+		A9A2C335265981DE00CFA2E7 /* TokenField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenField.swift; sourceTree = "<group>"; };
+		A9A2C33726598F9D00CFA2E7 /* TokenFieldTokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenFieldTokenView.swift; sourceTree = "<group>"; };
+		A9A2C340265B4DA300CFA2E7 /* TokenField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TokenField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9A2C342265B4DA300CFA2E7 /* TokenField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TokenField.h; sourceTree = "<group>"; };
 		A9A2C343265B4DA300CFA2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A9A2C34F265B5D8500CFA2E7 /* AutocompleteTokenFieldDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteTokenFieldDataSource.swift; sourceTree = "<group>"; };
-		A9A2C353265B651E00CFA2E7 /* AutocompleteTokenFieldCandidateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteTokenFieldCandidateView.swift; sourceTree = "<group>"; };
-		A9A2C359265B6B0F00CFA2E7 /* AutocompleteTokenFieldCandidatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteTokenFieldCandidatesViewController.swift; sourceTree = "<group>"; };
+		A9A2C34F265B5D8500CFA2E7 /* TokenFieldDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenFieldDataSource.swift; sourceTree = "<group>"; };
+		A9A2C353265B651E00CFA2E7 /* TokenFieldContactCandidateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenFieldContactCandidateView.swift; sourceTree = "<group>"; };
+		A9A2C359265B6B0F00CFA2E7 /* TokenFieldCandidatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenFieldCandidatesViewController.swift; sourceTree = "<group>"; };
+		A9A2C35C265FF71F00CFA2E7 /* TokenFieldCandidatesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenFieldCandidatesWindowController.swift; sourceTree = "<group>"; };
+		A9A2C35E2661C65D00CFA2E7 /* TokenTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTextField.swift; sourceTree = "<group>"; };
+		A9A2C3602661CD1500CFA2E7 /* TokenFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenFieldDelegate.swift; sourceTree = "<group>"; };
+		A9A2C3622661D26C00CFA2E7 /* TokenFieldCandidatesRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenFieldCandidatesRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9A2C347265B4DA300CFA2E7 /* AutocompleteTokenField.framework in Frameworks */,
+				A9A2C347265B4DA300CFA2E7 /* TokenField.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				A9A2C32426597E2D00CFA2E7 /* SearchControlDemo */,
-				A9A2C341265B4DA300CFA2E7 /* AutocompleteTokenField */,
+				A9A2C341265B4DA300CFA2E7 /* TokenField */,
 				A9A2C32326597E2D00CFA2E7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				A9A2C32226597E2D00CFA2E7 /* SearchControlDemo.app */,
-				A9A2C340265B4DA300CFA2E7 /* AutocompleteTokenField.framework */,
+				A9A2C340265B4DA300CFA2E7 /* TokenField.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,18 +121,22 @@
 			path = SearchControlDemo;
 			sourceTree = "<group>";
 		};
-		A9A2C341265B4DA300CFA2E7 /* AutocompleteTokenField */ = {
+		A9A2C341265B4DA300CFA2E7 /* TokenField */ = {
 			isa = PBXGroup;
 			children = (
-				A9A2C34F265B5D8500CFA2E7 /* AutocompleteTokenFieldDataSource.swift */,
-				A9A2C335265981DE00CFA2E7 /* AutocompleteTokenField.swift */,
-				A9A2C33726598F9D00CFA2E7 /* AutocompleteTokenFieldTokenView.swift */,
-				A9A2C353265B651E00CFA2E7 /* AutocompleteTokenFieldCandidateView.swift */,
-				A9A2C359265B6B0F00CFA2E7 /* AutocompleteTokenFieldCandidatesViewController.swift */,
-				A9A2C342265B4DA300CFA2E7 /* AutocompleteTokenField.h */,
+				A9A2C342265B4DA300CFA2E7 /* TokenField.h */,
 				A9A2C343265B4DA300CFA2E7 /* Info.plist */,
+				A9A2C335265981DE00CFA2E7 /* TokenField.swift */,
+				A9A2C35E2661C65D00CFA2E7 /* TokenTextField.swift */,
+				A9A2C33726598F9D00CFA2E7 /* TokenFieldTokenView.swift */,
+				A9A2C34F265B5D8500CFA2E7 /* TokenFieldDataSource.swift */,
+				A9A2C3602661CD1500CFA2E7 /* TokenFieldDelegate.swift */,
+				A9A2C35C265FF71F00CFA2E7 /* TokenFieldCandidatesWindowController.swift */,
+				A9A2C359265B6B0F00CFA2E7 /* TokenFieldCandidatesViewController.swift */,
+				A9A2C3622661D26C00CFA2E7 /* TokenFieldCandidatesRowView.swift */,
+				A9A2C353265B651E00CFA2E7 /* TokenFieldContactCandidateView.swift */,
 			);
-			path = AutocompleteTokenField;
+			path = TokenField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,7 +146,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9A2C344265B4DA300CFA2E7 /* AutocompleteTokenField.h in Headers */,
+				A9A2C344265B4DA300CFA2E7 /* TokenField.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,9 +172,9 @@
 			productReference = A9A2C32226597E2D00CFA2E7 /* SearchControlDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A9A2C33F265B4DA300CFA2E7 /* AutocompleteTokenField */ = {
+		A9A2C33F265B4DA300CFA2E7 /* TokenField */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A9A2C349265B4DA300CFA2E7 /* Build configuration list for PBXNativeTarget "AutocompleteTokenField" */;
+			buildConfigurationList = A9A2C349265B4DA300CFA2E7 /* Build configuration list for PBXNativeTarget "TokenField" */;
 			buildPhases = (
 				A9A2C33B265B4DA300CFA2E7 /* Headers */,
 				A9A2C33C265B4DA300CFA2E7 /* Sources */,
@@ -173,9 +185,9 @@
 			);
 			dependencies = (
 			);
-			name = AutocompleteTokenField;
+			name = TokenField;
 			productName = AutocompleteTokenField;
-			productReference = A9A2C340265B4DA300CFA2E7 /* AutocompleteTokenField.framework */;
+			productReference = A9A2C340265B4DA300CFA2E7 /* TokenField.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -209,7 +221,7 @@
 			projectRoot = "";
 			targets = (
 				A9A2C32126597E2D00CFA2E7 /* SearchControlDemo */,
-				A9A2C33F265B4DA300CFA2E7 /* AutocompleteTokenField */,
+				A9A2C33F265B4DA300CFA2E7 /* TokenField */,
 			);
 		};
 /* End PBXProject section */
@@ -247,11 +259,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9A2C34E265B4DA900CFA2E7 /* AutocompleteTokenFieldTokenView.swift in Sources */,
-				A9A2C350265B5D8500CFA2E7 /* AutocompleteTokenFieldDataSource.swift in Sources */,
-				A9A2C34D265B4DA900CFA2E7 /* AutocompleteTokenField.swift in Sources */,
-				A9A2C35A265B6B0F00CFA2E7 /* AutocompleteTokenFieldCandidatesViewController.swift in Sources */,
-				A9A2C354265B651E00CFA2E7 /* AutocompleteTokenFieldCandidateView.swift in Sources */,
+				A9A2C3632661D26C00CFA2E7 /* TokenFieldCandidatesRowView.swift in Sources */,
+				A9A2C35F2661C65D00CFA2E7 /* TokenTextField.swift in Sources */,
+				A9A2C3612661CD1500CFA2E7 /* TokenFieldDelegate.swift in Sources */,
+				A9A2C34E265B4DA900CFA2E7 /* TokenFieldTokenView.swift in Sources */,
+				A9A2C350265B5D8500CFA2E7 /* TokenFieldDataSource.swift in Sources */,
+				A9A2C34D265B4DA900CFA2E7 /* TokenField.swift in Sources */,
+				A9A2C35A265B6B0F00CFA2E7 /* TokenFieldCandidatesViewController.swift in Sources */,
+				A9A2C354265B651E00CFA2E7 /* TokenFieldContactCandidateView.swift in Sources */,
+				A9A2C35D265FF71F00CFA2E7 /* TokenFieldCandidatesWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +276,7 @@
 /* Begin PBXTargetDependency section */
 		A9A2C346265B4DA300CFA2E7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A9A2C33F265B4DA300CFA2E7 /* AutocompleteTokenField */;
+			target = A9A2C33F265B4DA300CFA2E7 /* TokenField */;
 			targetProxy = A9A2C345265B4DA300CFA2E7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -447,14 +463,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = AutocompleteTokenField/Info.plist;
+				INFOPLIST_FILE = TokenField/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.umurgdk.AutocompleteTokenField;
+				PRODUCT_BUNDLE_IDENTIFIER = io.umurgdk.TokenField;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -474,14 +490,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = AutocompleteTokenField/Info.plist;
+				INFOPLIST_FILE = TokenField/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.umurgdk.AutocompleteTokenField;
+				PRODUCT_BUNDLE_IDENTIFIER = io.umurgdk.TokenField;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -511,7 +527,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A9A2C349265B4DA300CFA2E7 /* Build configuration list for PBXNativeTarget "AutocompleteTokenField" */ = {
+		A9A2C349265B4DA300CFA2E7 /* Build configuration list for PBXNativeTarget "TokenField" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A9A2C34A265B4DA300CFA2E7 /* Debug */,

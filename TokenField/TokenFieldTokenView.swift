@@ -1,24 +1,24 @@
 //
-//  AutocompleteTokenCellView.swift
-//  SearchControlDemo
+//  TokenFieldTokenView.swift
+//  TokenField
 //
 //  Created by Umur Gedik on 22.05.2021.
 //
 
 import AppKit
 
-public class AutocompleteTokenFieldTokenView: NSView {
+public class TokenFieldTokenView: NSView {
     let textField = NSTextField(labelWithString: "")
     public var text: String {
         get { textField.stringValue }
         set { textField.stringValue = newValue }
     }
     
-    public var backgroundColor = NSColor.systemBlue {
+    public var backgroundColor = NSColor.controlAccentColor.withAlphaComponent(0.7) {
         didSet { needsDisplay = true }
     }
     
-    public var selectedBackgroundColor = NSColor.systemBlue.highlight(withLevel: 0.3) ?? .systemBlue {
+    public var selectedBackgroundColor = NSColor.controlAccentColor {
         didSet { needsDisplay = true }
     }
     
@@ -46,8 +46,6 @@ public class AutocompleteTokenFieldTokenView: NSView {
         didSet { updateTextField() }
     }
     
-    public weak var tokenField: AutocompleteTokenField?
-    
     public var paddings = NSDirectionalEdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4) {
         didSet {
             textFieldConstraints[0].constant = paddings.top
@@ -56,6 +54,8 @@ public class AutocompleteTokenFieldTokenView: NSView {
             textFieldConstraints[3].constant = paddings.trailing
         }
     }
+    
+    weak var tokenField: TokenField?
     
     private var textFieldConstraints: [NSLayoutConstraint] = []
     
@@ -93,7 +93,7 @@ public class AutocompleteTokenFieldTokenView: NSView {
     }
     
     public override func mouseDown(with event: NSEvent) {
-        tokenField?.selectToken(byIndex: tokenIndex)
+        tokenField?.highlightToken(byItemIndex: tokenIndex)
     }
     
     public override func updateLayer() {

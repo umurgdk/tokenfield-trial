@@ -1,6 +1,6 @@
 //
-//  AutocompleteTokenField.swift
-//  SearchControlDemo
+//  TokenField.swift
+//  TokenField
 //
 //  Created by Umur Gedik on 22.05.2021.
 //
@@ -9,18 +9,19 @@ import Cocoa
 
 fileprivate struct Token {
     let itemIndex: Int
-    let cellView: AutocompleteTokenFieldTokenView
+    let cellView: TokenFieldTokenView
 }
 
 @IBDesignable
-public class AutocompleteTokenField: NSView {
-    public let textField = NSTextField()
+public class TokenField: NSView {
+    public let textField: NSTextField = TokenTextField()
     
     public var text: String {
         textField.stringValue
     }
     
-    public weak var dataSource: AutocompleteTokenFieldDataSource?
+    public weak var dataSource: TokenFieldDataSource?
+    public weak var delegate: TokenFieldDelegate?
     
     // MARK: - Appearance
     @IBInspectable
@@ -72,6 +73,11 @@ public class AutocompleteTokenField: NSView {
         didSet { needsLayout = true }
     }
     
+    @IBInspectable
+    public var candidateListMaxHeight: CGFloat = 250 {
+        didSet { candidatesWindowController?.maxHeight = candidateListMaxHeight }
+    }
+    
     // MARK: - NSView
     public override var isFlipped: Bool { true }
     public override var acceptsFirstResponder: Bool { true }
@@ -99,6 +105,13 @@ public class AutocompleteTokenField: NSView {
         textField.isBezeled = false
         textField.font = font
         textField.focusRingType = .none
+        (textField as! TokenTextField).onActivated = { [weak self] in
+            self?.showCandidates()
+        }
+        
+        (textField as! TokenTextField).onCancelled = { [weak self] in
+            self?.hideCandidates()
+        }
         
         addSubview(textField)
         
@@ -119,50 +132,46 @@ public class AutocompleteTokenField: NSView {
     }
     
     // MARK: - Tokens
+    public var tokenIndexSet: IndexSet {
+        IndexSet(tokens.map(\.itemIndex))
+    }
+    
     private var tokens: [Token] = []
-    private var selectedTokenIndex: Int?
-    private var nextTokenIndex = 0
-
-    public func selectToken(byIndex tokenIndex: Int) {
-        if let selectedTokenIndex = self.selectedTokenIndex {
-            tokenByIndex(selectedTokenIndex)?.cellView.isSelected = false
+    private var highlightedItemIndex: Int? {
+        didSet {
+            if let index = oldValue, highlightedItemIndex != index {
+                delegate?.tokenField(self, didUnhighlightTokenWithItemIndex: index)
+                tokenByIndex(index)?.cellView.isSelected = false
+            }
+            
+            if let index = highlightedItemIndex, index != oldValue {
+                delegate?.tokenField(self, didHighlightTokenWithItemIndex: index)
+                guard let newToken = tokenByIndex(index) else { return }
+                window?.makeFirstResponder(self)
+                newToken.cellView.isSelected = true
+            }
         }
+    }
 
-        guard let newToken = tokenByIndex(tokenIndex) else { return }
-        window?.makeFirstResponder(self)
-        newToken.cellView.isSelected = true
-        selectedTokenIndex = tokenIndex
+    public func highlightToken(byItemIndex tokenIndex: Int) {
+        highlightedItemIndex = tokenIndex
     }
     
     private func tokenByIndex(_ index: Int) -> Token? {
         tokens.first { $0.itemIndex == index }
     }
     
-    public func deleteSelectedToken() {
+    public func removeSelectedToken() {
         guard
-            let selectedIndex = selectedTokenIndex,
+            let selectedIndex = highlightedItemIndex,
             let selectedToken = tokenByIndex(selectedIndex)
         else { return }
         
         tokens = tokens.filter { $0.itemIndex != selectedIndex }
         selectedToken.cellView.removeFromSuperview()
         needsLayout = true
-    }
-    
-    #warning("FIXME: Token index should be read from the data source")
-    private func addToken(with text: String) {
-        let cellView = AutocompleteTokenFieldTokenView(tokenIndex: nextTokenIndex)
-        cellView.text = text
-        cellView.font = font
-        cellView.translatesAutoresizingMaskIntoConstraints = false
-        cellView.tokenField = self
-        addSubview(cellView)
-        needsLayout = true
         
-        let token = Token(itemIndex: nextTokenIndex, cellView: cellView)
-        tokens.append(token)
-        
-        nextTokenIndex += 1
+        delegate?.tokenField(self, didRemoveTokenWithItemIndex: selectedIndex)
     }
     
     private func removeLastToken() {
@@ -170,12 +179,42 @@ public class AutocompleteTokenField: NSView {
         tokens.removeLast()
         token.cellView.removeFromSuperview()
         needsLayout = true
+        
+        delegate?.tokenField(self, didRemoveTokenWithItemIndex: token.itemIndex)
+    }
+    
+    private func addToken() {
+        guard
+            let dataSource = dataSource,
+            let candidatesWindowController = candidatesWindowController
+        else { return }
+        
+        
+        let itemIndex = dataSource.tokenFieldItemIndex(self, forInput: text, candidateIndex: candidatesWindowController.selectedRowIndex)
+        let tokenText = dataSource.tokenFieldTokenText(self, forItemAtIndex: itemIndex)
+        
+        let cellView = TokenFieldTokenView(tokenIndex: itemIndex)
+        cellView.text = tokenText
+        cellView.font = font
+        cellView.translatesAutoresizingMaskIntoConstraints = false
+        cellView.tokenField = self
+        addSubview(cellView)
+        needsLayout = true
+        
+        let token = Token(itemIndex: itemIndex, cellView: cellView)
+        tokens.append(token)
+        
+        candidatesWindowController.cancel()
+        textField.stringValue = ""
+        
+        delegate?.tokenField(self, didAddTokenWithItemIndex: itemIndex)
+        delegate?.tokenFieldTextDidChange(self)
     }
     
     // MARK: - Keyboard Events
     public override func resignFirstResponder() -> Bool {
         super.resignFirstResponder()
-        tokens.forEach { $0.cellView.isSelected = false }
+        highlightedItemIndex = nil
         return true
     }
     
@@ -190,9 +229,37 @@ public class AutocompleteTokenField: NSView {
         ]
         
         if deleteSelectors.contains(selector) {
-            deleteSelectedToken()
+            removeSelectedToken()
             window?.makeFirstResponder(textField)
             return
+        }
+        
+        switch selector {
+        case #selector(NSResponder.moveLeft(_:)):
+            guard let highlightedTokenIndex = tokens.firstIndex(where: { $0.itemIndex == highlightedItemIndex }) else {
+                return
+            }
+            
+            if highlightedTokenIndex > 0 {
+                highlightToken(byItemIndex: tokens[highlightedTokenIndex - 1].itemIndex)
+            }
+            
+        case #selector(NSResponder.moveRight(_:)):
+            guard
+                let highlightedTokenIndex = tokens.firstIndex(where: { $0.itemIndex == highlightedItemIndex }),
+                let lastToken = tokens.last
+            else {
+                return
+            }
+            
+            if highlightedItemIndex == lastToken.itemIndex {
+                textField.becomeFirstResponder()
+            } else if highlightedTokenIndex < tokens.count - 1 {
+                highlightToken(byItemIndex: tokens[highlightedTokenIndex + 1].itemIndex)
+            }
+            
+        default:
+            break
         }
     }
     
@@ -209,8 +276,8 @@ public class AutocompleteTokenField: NSView {
     }
     
     private var heightConstraint: NSLayoutConstraint?
-    private let emptyCellView: AutocompleteTokenFieldTokenView = {
-        let cellView = AutocompleteTokenFieldTokenView(tokenIndex: -1)
+    private let emptyCellView: TokenFieldTokenView = {
+        let cellView = TokenFieldTokenView(tokenIndex: -1)
         cellView.text = " "
         return cellView
     }()
@@ -275,13 +342,46 @@ public class AutocompleteTokenField: NSView {
         
         textField.frame = NSRect(origin: textFieldOrigin, size: textFieldSize)
     }
+    
+    // MARK: - Candidates
+    var candidatesWindowController: TokenFieldCandidatesWindowController?
+    private func hideCandidates() {
+        if let windowController = candidatesWindowController {
+            windowController.cancel()
+            candidatesWindowController = nil
+        }
+    }
+    
+    private func showCandidates() {
+        guard
+            let dataSource = dataSource,
+            dataSource.tokenField(self, numberOfCandidatesForInput: textField.stringValue) > 0
+        else {
+            hideCandidates()
+            return
+        }
+        
+        let windowController = candidatesWindowController ?? {
+            let wc = TokenFieldCandidatesWindowController()
+            wc.onDoubleClick = { [weak self] in self?.addToken() }
+            wc.maxHeight = candidateListMaxHeight
+            return wc
+        }()
+        
+        self.candidatesWindowController = windowController
+        
+        if windowController.window?.parent != window {
+            windowController.begin(for: self)
+        }
+        
+        windowController.reloadCandidates(with: dataSource)
+    }
 }
 
-extension AutocompleteTokenField: NSTextFieldDelegate {
+extension TokenField: NSTextFieldDelegate {
     public func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         if commandSelector == #selector(NSResponder.insertNewline(_:)) {
-            addToken(with: textField.stringValue)
-            textField.stringValue = ""
+            addToken()
             return true
         }
         
@@ -298,13 +398,26 @@ extension AutocompleteTokenField: NSTextFieldDelegate {
             let selectedRange = textField.currentEditor()?.selectedRange
             let isCursorAtBeginning = selectedRange?.location == 0 && selectedRange?.length == 0
             if let lastToken = tokens.last, textField.stringValue == "" || isCursorAtBeginning {
-                selectToken(byIndex: lastToken.itemIndex)
+                highlightToken(byItemIndex: lastToken.itemIndex)
                 return true
             }
-            
         }
         
-        #warning("TODO: moveLeft, moveRight can navigate among tokens")
+        if commandSelector == #selector(NSResponder.moveUp(_:)) {
+            candidatesWindowController?.selectPrevious()
+            return true
+        }
+        
+        if commandSelector == #selector(NSResponder.moveDown(_:)) {
+            candidatesWindowController?.selectNext()
+            return true
+        }
+        
         return false
+    }
+    
+    public func controlTextDidChange(_ obj: Notification) {
+        showCandidates()
+        delegate?.tokenFieldTextDidChange(self)
     }
 }
